@@ -1,4 +1,4 @@
 # React
 React练习
 
-该仓库用于管理VUE学习资料
+该仓库用于管理React学习资料
