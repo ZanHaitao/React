@@ -1,0 +1,12 @@
+.appear,
+.exit-active,
+.exit-done,
+.enter {
+    opacity: 0;
+}
+
+.appear-done,
+.enter-done,
+.enter-active {
+    opacity: 1;
+}
