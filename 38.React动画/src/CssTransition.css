@@ -1,0 +1,41 @@
+.container {
+    width: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.title {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.exit-active {
+    transition: 1s;
+    transform: translateX(-400px);
+    opacity: 0;
+}
+
+.enter-done,
+.exit {
+    display: block;
+}
+
+.exit-done {
+    display: none;
+}
+
+.enter,
+.appear {
+    display: block;
+    opacity: 0;
+    transform: translateX(400px);
+}
+
+.enter-active,
+.appear-active {
+    transition: 1s;
+    opacity: 1;
+    transform: translateX(0);
+}
