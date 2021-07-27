@@ -1,0 +1,28 @@
+.layout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    &-header {
+        height: 70px;
+        background-color: rgb(51, 50, 50);
+    }
+    &-container {
+        width: 100%;
+        height: calc(100% - 70px);
+        display: flex;
+        .aside {
+            width: 250px;
+            background-color: rgb(196, 194, 194);
+            height: 100%;
+            overflow: hidden;
+        }
+        .main{
+            height: 100%;
+            flex: 1;
+            overflow: auto;
+            padding: 30px;
+        }
+    }
+}
