@@ -1,0 +1,38 @@
+.page-content{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+}
+.page-btn{
+    padding: 0 10px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #666;
+    margin: 0 2px;
+    cursor: pointer;
+}
+.page-btn.active{
+    color: #fff;
+    background-color: black;
+    font-weight: bold;
+}
+.page-tip{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin: 0 10px;
+}
+.page-change{
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    margin: 0 10px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.page-symbol{
+    cursor: pointer;
+}

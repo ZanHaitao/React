@@ -1,0 +1,23 @@
+.search {
+  width: 100%;
+  border-bottom: 1px dashed;
+  padding-bottom: 20px;
+  &-sex {
+    margin-left: 20px;
+  }
+  label{
+    cursor: pointer;
+  }
+  &-btn {
+    margin-left: 20px;
+    border: none;
+    width: 70px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 4px;
+    &:hover{
+      background-color: rgb(68, 67, 67);
+      color: #fff;
+    }
+  }
+}
