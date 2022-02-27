@@ -1,22 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import StudentList from "./components/StudentList";
-const appkey = "15556677737_1585147447159";
+// import Tick from './components/Tick'
+import Test from './components/Test'
 
-async function fetchAllStudents() {
-  const stus = await fetch(
-    "http://open.duyiedu.com/api/student/findAll?appkey=" + appkey
-  )
-    .then((res) => res.json())
-    .then((res) => res.data);
-  console.log(stus);
-  return stus;
-}
-
-async function render() {
-  ReactDOM.render("加载中...", document.getElementById("root"));
-  const stus = await fetchAllStudents();
-  ReactDOM.render(<StudentList stus={stus} />, document.getElementById("root"));
-}
-
-render();
+// ReactDOM.render(<Tick number={10} />, document.getElementById("root"));
+ReactDOM.render(<Test/>, document.getElementById("root"));
