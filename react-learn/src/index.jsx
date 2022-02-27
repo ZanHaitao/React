@@ -1,25 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import MyFuncComp from "./MyFuncComp";
-import MyClassComp from "./MyClassComp";
+import StudentList from "./components/StudentList";
+const appkey = "15556677737_1585147447159";
 
-ReactDOM.render(
-  <div>
-    <MyFuncComp number={1} />
-    <MyFuncComp number={2} />
-    <MyFuncComp number={3} />
-    <MyFuncComp number={4} />
-    <MyFuncComp number={5} />
-    <MyClassComp number={1} />
-    <MyClassComp
-      obj={{
-        name: "张三",
-        age: 15,
-      }}
-    />
-    <MyClassComp number={2} />
-    <MyClassComp number={3} />
-    <MyClassComp number={5} />
-  </div>,
-  document.getElementById("root")
-);
+async function fetchAllStudents() {
+  const stus = await fetch(
+    "http://open.duyiedu.com/api/student/findAll?appkey=" + appkey
+  )
+    .then((res) => res.json())
+    .then((res) => res.data);
+  console.log(stus);
+  return stus;
+}
+
+async function render() {
+  ReactDOM.render("加载中...", document.getElementById("root"));
+  const stus = await fetchAllStudents();
+  ReactDOM.render(<StudentList stus={stus} />, document.getElementById("root"));
+}
+
+render();
