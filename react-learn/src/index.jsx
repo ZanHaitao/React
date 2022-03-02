@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import TestPage from './components/TestPage'
+import Comp from './Comp'
 
-ReactDOM.render(<TestPage />, document.getElementById("root"));
+ReactDOM.render(<Comp />, document.getElementById("root"));
