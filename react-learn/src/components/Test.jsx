@@ -1,35 +1,10 @@
-import Modal from "./common/Modal";
-import React, { Component } from "react";
+import React from "react";
+import ThreeLayout from "./common/ThreeLayout";
 
-export default class Test extends Component {
-  state = {
-    showModal: false,
-  };
-
-  changeModalPanel = () => {
-    this.setState({
-      showModal: !this.state.showModal,
-    });
-  };
-
-  render() {
-    return (
-      <div>
-        {this.state.showModal ? (
-          <Modal onClose={this.changeModalPanel}>
-            <div
-              style={{
-                width: 500,
-                height: 300,
-                background: "#fff",
-              }}
-            >
-              Test
-            </div>
-          </Modal>
-        ) : null}
-        <button onClick={this.changeModalPanel}>显示</button>
-      </div>
-    );
-  }
+export default function Test() {
+  return (
+    <ThreeLayout left={<div>afsdfasfdas</div>} right={<div>afsdfasfdas</div>}>
+      <h1>learnlearnlearnlearnlearnlearnlearn</h1>
+    </ThreeLayout>
+  );
 }

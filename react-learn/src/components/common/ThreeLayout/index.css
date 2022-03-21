@@ -1,0 +1,15 @@
+.three-layout {
+  display: flex;
+  height: 100%;
+}
+.three-layout .main {
+  order: 2;
+  flex: 1 1 auto;
+  border: 2px solid red;
+}
+.three-layout .aside-left {
+  order: 1;
+}
+.three-layout .aside-left {
+  order: 3;
+}
