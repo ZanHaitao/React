@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 
+function TestRef(props, ref) {
+  return <div ref={ref}>test</div>;
+}
+
+const NewRef = React.forwardRef(TestRef);
+
 export default class Test extends Component {
-  constructor(props) {
-    super(props);
-    this.txt = React.createRef();
-  }
+  test = React.createRef();
 
   render() {
     return (
       <div>
-        <input type="text" ref={this.txt} />
+        <NewRef ref={this.test} />
         <button
           onClick={() => {
-            this.txt.current.focus();
+            console.log(this.test.current);
           }}
         >
           聚焦

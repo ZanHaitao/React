@@ -1,5 +1,5 @@
 import React from "react";
-import Test from "./components/Test.jsx";
+import Test from "./components/TestHoc";
 
 export default function App() {
   return (
