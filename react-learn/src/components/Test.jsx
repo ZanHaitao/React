@@ -1,68 +1,73 @@
 import React, { Component } from "react";
-import ProtTypes from "prop-types";
 
+const ctx = React.createContext();
 class ChildA extends Component {
-  static contextTypes = {
-    a: ProtTypes.number,
-    b: ProtTypes.string,
-    changeA: ProtTypes.func,
-  };
-
+  static contextType = ctx;
   render() {
     return (
       <div>
-        <h1>
-          a:{this.context.a},b:{this.context.b}
-        </h1>
+        <h1>ChildA</h1>
+        <h1>a:{this.context.a}</h1>
+        <h1>b:{this.context.b}</h1>
         <button
           onClick={() => {
-            this.context.changeA(this.context.a + 1);
+            this.context.onChangeA(this.context.a + 1);
           }}
         >
-          a+1
+          后代+1
         </button>
       </div>
     );
   }
 }
 
-export default class Test extends Component {
-  static childContextTypes = {
-    a: ProtTypes.number,
-    b: ProtTypes.string,
-    changeA: ProtTypes.func,
-  };
+function ChildB(props) {
+  return (
+    <ctx.Consumer>
+      {(value) => (
+        <div>
+          <h1>ChildB</h1>
+          <h1>a:{value.a}</h1>
+          <h1>b:{value.b}</h1>
+          <button
+            onClick={() => {
+              value.onChangeA(value.a + 1);
+            }}
+          >
+            后代+1
+          </button>
+        </div>
+      )}
+    </ctx.Consumer>
+  );
+}
 
+export default class Test extends Component {
   state = {
     a: 1,
     b: "test",
+    onChangeA: (val) => {
+      this.setState({
+        a: val,
+      });
+    },
   };
-
-  getChildContext = () => {
-    return {
-      a: this.state.a,
-      b: this.state.b,
-      changeA: (val) => {
-        this.setState({
-          a: val,
-        });
-      },
-    };
-  };
-
   render() {
     return (
       <div>
-        <ChildA />
-        <button
-          onClick={() => {
-            this.setState({
-              a: this.state.a + 1,
-            });
-          }}
-        >
-          a+1
-        </button>
+        <ctx.Provider value={this.state}>
+          <ChildA />
+          <ChildB />
+          <button
+            onClick={() => {
+              this.setState({
+                a: this.state.a + 1,
+              });
+            }}
+          >
+            元素自己+1
+          </button>
+        </ctx.Provider>
       </div>
     );
   }
