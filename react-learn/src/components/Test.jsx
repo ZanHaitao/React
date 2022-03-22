@@ -1,32 +1,23 @@
-import React from "react";
-import withLog from "./withLog";
-import withLogin from "./withLogin";
-class TestHoc extends React.Component {
-  render() {
-    return <div>TestHoc</div>;
-  }
-}
-let NewComp = withLog(TestHoc);
-NewComp = withLogin(NewComp);
+import React, { Component } from "react";
 
-export default class Test extends React.Component {
-  state = {
-    login: true,
-  };
+export default class Test extends Component {
+  constructor(props) {
+    super(props);
+    this.txt = React.createRef();
+  }
+
   render() {
     return (
-      <>
-        <NewComp login={this.state.login} />
+      <div>
+        <input type="text" ref={this.txt} />
         <button
           onClick={() => {
-            this.setState({
-              login: !this.state.login,
-            });
+            this.txt.current.focus();
           }}
         >
-          登录/注销
+          聚焦
         </button>
-      </>
+      </div>
     );
   }
 }
