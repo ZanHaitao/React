@@ -1,6 +1,18 @@
 import React, { Component } from "react";
- 
+import types from "../../../util/commonTypes";
+import PropTypes from "prop-types";
 export default class CheckBoxGroup extends Component {
+  static defaultProps = {
+    list: [],
+    chooes: [],
+  };
+
+  static propTypes = {
+    list: types.groupTypes,
+    chooes: types.chooes,
+    name: PropTypes.string.isRequired,
+  };
+
   handleChange = (e) => {
     let newArr = [];
     if (e.target.checked) {
