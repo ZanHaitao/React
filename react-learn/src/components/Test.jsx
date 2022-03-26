@@ -1,29 +1,20 @@
-import React, { useImperativeHandle, useRef } from "react";
-
-function Child(props, ref) {
-  useImperativeHandle(ref, () => {
-    return {
-      method() {
-        console.log("test method");
-      },
-    };
-  });
-  return <h1>test</h1>;
-}
-
-const NewChild = React.forwardRef(Child);
+import React, { useLayoutEffect, useRef, useState } from "react";
 
 export default function Test() {
-  const ref = useRef();
+  const [n, setN] = useState(0);
+  const h1Ref = useRef();
+  useLayoutEffect(() => {
+    h1Ref.current.innerHTML = Math.random();
+  });
   return (
     <div>
-      <NewChild ref={ref} />
+      <h1 ref={h1Ref}>{n}</h1>
       <button
         onClick={() => {
-          ref.current.method();
+          setN(n + 1);
         }}
       >
-        调用
+        n+1
       </button>
     </div>
   );
