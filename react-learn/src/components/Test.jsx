@@ -1,17 +1,36 @@
-import React, { useContext } from "react";
-const ctx = React.createContext();
+import React, { useCallback, useState } from "react";
 
-function TestContext(props) {
-  const value = useContext(ctx);
-  return <h1>上下文：{value}</h1>;
+class TestCallback extends React.PureComponent {
+  render() {
+    console.log("TestCallback render");
+    return (
+      <div>
+        <h1>{this.props.num}</h1>
+        <button onClick={this.props.onChange}>改变</button>
+      </div>
+    );
+  }
 }
 
 export default function Test() {
+  console.log("Test render");
+  const [num, setNum] = useState(0);
+  const [, update] = useState({});
+
+  const handleChange = useCallback(() => {
+    setNum(num + 1);
+  }, [num]);
+
   return (
     <div>
-      <ctx.Provider value={"abc"}>
-        <TestContext />
-      </ctx.Provider>
+      <TestCallback num={num} onChange={handleChange} />
+      <button
+        onClick={() => {
+          update({});
+        }}
+      >
+        刷新
+      </button>
     </div>
   );
 }
