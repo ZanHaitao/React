@@ -1,38 +1,21 @@
-import React, { useMemo, useState } from "react";
-
-function Item(props) {
-  console.log("render");
-  return <li>{props.n}</li>;
-}
+import React, { useEffect, useState, useRef } from "react";
 
 export default function Test() {
-  const [num, setNum] = useState(1000);
-  const [, update] = useState({});
-  const itemList = useMemo(() => {
-    const arr = [];
-    for (let i = 0; i < num; i++) {
-      arr.push(<Item key={i} n={i}></Item>);
-    }
-    return arr;
-  }, [num]);
+  const [n, setN] = useState(10);
+  const refN = useRef(10);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      refN.current--;
+      setN(refN.current);
+      if (refN.current === 0) {
+        clearInterval(timer);
+      }
+    }, 1000);
 
-  return (
-    <>
-      <button
-        onClick={() => {
-          update({});
-        }}
-      >
-        刷新
-      </button>
-      <button
-        onClick={() => {
-          setNum(num + 1);
-        }}
-      >
-        num+1
-      </button>
-      <ul>{itemList}</ul>
-    </>
-  );
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
+  return <h1>{n}</h1>;
 }
