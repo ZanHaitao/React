@@ -1,21 +1,30 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useImperativeHandle, useRef } from "react";
+
+function Child(props, ref) {
+  useImperativeHandle(ref, () => {
+    return {
+      method() {
+        console.log("test method");
+      },
+    };
+  });
+  return <h1>test</h1>;
+}
+
+const NewChild = React.forwardRef(Child);
 
 export default function Test() {
-  const [n, setN] = useState(10);
-  const refN = useRef(10);
-  useEffect(() => {
-    const timer = setInterval(() => {
-      refN.current--;
-      setN(refN.current);
-      if (refN.current === 0) {
-        clearInterval(timer);
-      }
-    }, 1000);
-
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
-
-  return <h1>{n}</h1>;
+  const ref = useRef();
+  return (
+    <div>
+      <NewChild ref={ref} />
+      <button
+        onClick={() => {
+          ref.current.method();
+        }}
+      >
+        调用
+      </button>
+    </div>
+  );
 }
