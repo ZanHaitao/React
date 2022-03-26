@@ -1,29 +1,23 @@
-import React, { useCallback, useState } from "react";
+import React, { useMemo, useState } from "react";
 
-class TestCallback extends React.PureComponent {
-  render() {
-    console.log("TestCallback render");
-    return (
-      <div>
-        <h1>{this.props.num}</h1>
-        <button onClick={this.props.onChange}>改变</button>
-      </div>
-    );
-  }
+function Item(props) {
+  console.log("render");
+  return <li>{props.n}</li>;
 }
 
 export default function Test() {
-  console.log("Test render");
-  const [num, setNum] = useState(0);
+  const [num, setNum] = useState(1000);
   const [, update] = useState({});
-
-  const handleChange = useCallback(() => {
-    setNum(num + 1);
+  const itemList = useMemo(() => {
+    const arr = [];
+    for (let i = 0; i < num; i++) {
+      arr.push(<Item key={i} n={i}></Item>);
+    }
+    return arr;
   }, [num]);
 
   return (
-    <div>
-      <TestCallback num={num} onChange={handleChange} />
+    <>
       <button
         onClick={() => {
           update({});
@@ -31,6 +25,14 @@ export default function Test() {
       >
         刷新
       </button>
-    </div>
+      <button
+        onClick={() => {
+          setNum(num + 1);
+        }}
+      >
+        num+1
+      </button>
+      <ul>{itemList}</ul>
+    </>
   );
 }
