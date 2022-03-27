@@ -1,0 +1,30 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.container .header {
+  height: 60px;
+  background-color: #333;
+}
+.container .middle {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+}
+.container .middle .aside {
+  width: 200px;
+  height: 100%;
+  flex-shrink: 0;
+  background-color: rgb(201, 201, 201);
+}
+.container .middle .main {
+  flex: 1;
+  height: 100%;
+  padding: 20px;
+}
