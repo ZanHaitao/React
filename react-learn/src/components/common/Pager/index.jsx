@@ -15,6 +15,9 @@ export default function Pager(props) {
     props.onPageChange && props.onPageChange(newPage);
   }
 
+  if (lastPage === 0) {
+    return null;
+  }
   return (
     <div className="pager">
       <span

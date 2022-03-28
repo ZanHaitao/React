@@ -1,20 +1,21 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./index.css";
 
 export default function Aside() {
   return (
     <ul className="list">
       <li className="list-item">
-        <a href="/students">学生列表</a>
+        <NavLink exact to="/students">学生列表</NavLink>
       </li>
       <li className="list-item">
-        <a href="/students/add">添加学生</a>
+        <NavLink exact to="/students/add">添加学生</NavLink>
       </li>
       <li className="list-item">
-        <a href="/courses">课程列表</a>
+        <NavLink exact to="/courses">课程列表</NavLink>
       </li>
       <li className="list-item">
-        <a href="/courses/add">添加课程</a>
+        <NavLink exact to="/courses/add">添加课程</NavLink>
       </li>
     </ul>
   );
