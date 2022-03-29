@@ -1,31 +1,32 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import Home from "./Home";
-import Login from "./Login";
-import User from "./User";
-import ProtectedRoute from "./ProtectedRoute";
+import { BrowserRouter as Router } from "react-router-dom";
+import RootRouter from "./RootRouter";
+import "./App.css";
+import Link from "./EasyLink";
 
 export default function App() {
   return (
     <div>
       <Router>
-        <ul>
-          <li>
-            <Link to={"/"}>首页</Link>
-          </li>
-          <li>
-            <Link to={"/login"}>登录</Link>
-          </li>
-          <li>
-            <Link to={"/user"}>个人中心</Link>
-          </li>
-        </ul>
+        <h1>
+          <Link
+            to={{
+              name: "home",
+            }}
+          >
+            首页
+          </Link>
+          <Link
+            to={{
+              name: "news",
+            }}
+          >
+            新闻页
+          </Link>
+        </h1>
         <div>
-          <Switch>
-            <Route path={"/login"} component={Login} />
-            <ProtectedRoute path={"/user"} component={User} />
-            <Route path={"/"} component={Home} />
-          </Switch>
+          {/* 自动生成Route */}
+          <RootRouter />
         </div>
       </Router>
     </div>
