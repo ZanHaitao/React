@@ -6,8 +6,11 @@ import * as testAction from './action/testAction'
 const store = createStore(reducer);
 
 console.log(store.getState());
+const unListen = store.subscribe(() => {
+  console.log("改变了");
+})
 store.dispatch(testAction.createTest1Action(123));
-store.dispatch(testAction.createTest2Action(456));
+unListen();
 console.log(store.getState());
 
 
