@@ -1,10 +1,10 @@
 import React from "react";
-import { NavLink, Route } from "react-router-dom";
+import { BrowserRouter as Router, NavLink, Route } from "react-router-dom";
 import "./App.css";
-import RouterGuard from './RouterGuard';
-import reset from './util/resetScroll'
+import useScroll from './useScroll'
 
 function Page1(props) {
+  useScroll(props.location.pathname);
   return (
     <div className="page1">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni nulla
@@ -3216,6 +3216,7 @@ function Page1(props) {
 }
 
 function Page2(props) {
+  useScroll(props.location.pathname);
   return (
     <div className="page2">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni nulla
@@ -6430,11 +6431,7 @@ function Page2(props) {
 export default function App() {
   return (
     <div>
-      <RouterGuard onChange={(prev,curr)=>{
-        if(prev.pathname !== curr.pathname){
-          reset();
-        }
-      }}>
+      <Router>
         <div className="nav">
           <NavLink to={"/page1"}>页面1</NavLink>
           <NavLink to={"/page2"}>页面2</NavLink>
@@ -6443,7 +6440,7 @@ export default function App() {
           <Route path={"/page1"} component={Page1} />
           <Route path={"/page2"} component={Page2} />
         </div>
-      </RouterGuard>
+      </Router>
     </div>
   );
 }
