@@ -1,26 +1,26 @@
-import { createStore, bindActionCreators } from 'redux';
-import * as actionType from './action/action-type';
-import * as action from './action/getAction'
+import { createStore } from 'redux';
+import reducer from './reducer';
+import * as usersAction from './action/usersAction'
+import * as testAction from './action/testAction'
 
-function Reducer(state, action) {
-  if (action.type === actionType.INCREASE) {
-    return state + 1;
-  } else if (action.type === actionType.DECREASE) {
-    return state - 1;
-  } else if (action.type === actionType.SET) {
-    return action.payload;
-  }
-  return state
-}
-const store = createStore(Reducer, 0);
-
-const bindAction = bindActionCreators(action, store.dispatch);
+const store = createStore(reducer);
 
 console.log(store.getState());
-
-bindAction.getIncreaseAction();
-bindAction.getIncreaseAction();
-bindAction.getIncreaseAction();
-bindAction.getSetAction(999)
-
+store.dispatch(testAction.createTest1Action(123));
+store.dispatch(testAction.createTest2Action(456));
 console.log(store.getState());
+
+
+// store.dispatch(usersAction.createAddUserAction({
+//   id: 3,
+//   name: "wang",
+//   age: 28
+// }))
+// console.log(store.getState());
+// store.dispatch(usersAction.createDeleteUserAction(1));
+// console.log(store.getState());
+// store.dispatch(usersAction.createUpdateUserAction(3, {
+//   name: "周",
+//   age: 99
+// }));
+// console.log(store.getState());
