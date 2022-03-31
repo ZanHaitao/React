@@ -1,7 +1,3 @@
-import createStore from './createStore'
-import bindActionCreators from './bindActionCreators'
-// eslint-disable-next-line import/no-anonymous-default-export
-export {
-  createStore,
-  bindActionCreators
-}
+export { default as createStore } from './createStore';
+export { default as bindActionCreators } from './bindActionCreators';
+export { default as combineReducers } from './combineReducers';

@@ -1,22 +1,5 @@
-/**
- * 判断是否是一个平面对象
- * @param {*} obj 
- * @returns 
- */
-function isPlainObject(obj) {
-  if (typeof obj !== "object") {
-    return false;
-  }
-  return Object.getPrototypeOf(obj) === Object.prototype;
-}
-
-/**
- * 获取length长度的一个随机的字符串（包含数字字母）
- * @param {*} length 
- */
-function getRandomString(length) {
-  return Math.random().toString(36).sub(2, length).split("").join(".");
-}
+import actionTypes from './util/actionTypes'
+import isPlainObject from './util/isPlainObject'
 
 export default function createStore(reducer, defaultState) {
 
@@ -68,7 +51,7 @@ export default function createStore(reducer, defaultState) {
 
   // 首次调用执行一次分发
   dispatch({
-    type: "@@redux/INIT" + getRandomString(7)
+    type: actionTypes.INIT()
   })
 
   return {
