@@ -1,5 +1,5 @@
 import React from "react";
-import "./Redux/index";
+import "./store/index";
 
 export default function App() {
   return <div>App</div>;
