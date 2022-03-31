@@ -1,15 +1,21 @@
-// import { createStore } from 'redux';
-import { createStore } from '../redux'
+// import { createStore,bindActionCreators } from 'redux';
+import { createStore, bindActionCreators } from '../redux'
 import reducer from './reducer';
 import * as usersAction from './action/usersAction'
 import * as testAction from './action/testAction'
 const store = createStore(reducer);
 
+const newTestAction = bindActionCreators({
+  createTest1Action: testAction.createTest1Action,
+  createTest2Action: testAction.createTest2Action
+}, store.dispatch);
+
 console.log(store.getState());
 const unListen = store.subscribe(() => {
   console.log("改变了");
 })
-store.dispatch(testAction.createTest1Action(123));
+
+newTestAction.createTest1Action(123);
 unListen();
 
 console.log(store.getState());
