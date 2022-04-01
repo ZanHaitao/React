@@ -32,12 +32,23 @@ export function setDatas(total, datas) {
   }
 }
 
-export function fetchDatas() {
-  return async (dispatch, getState) => {
-    dispatch(setLoading(true));
-    const condition = getState().student.searchCondition
-    const resp = await getStudentDataFindByPage(condition);
-    dispatch(setDatas(resp.count,resp.datas));
-    dispatch(setLoading(false));
+// export function fetchDatas() {
+//   return async (dispatch, getState) => {
+//     dispatch(setLoading(true));
+//     const condition = getState().student.searchCondition
+//     const resp = await getStudentDataFindByPage(condition);
+//     dispatch(setDatas(resp.count,resp.datas));
+//     dispatch(setLoading(false));
+//   }
+// }
+
+export async function fetchDatas() {
+  const resp = await getStudentDataFindByPage();
+  return {
+    type: actionTypes.setDatas,
+    payload: {
+      total: resp.count,
+      datas: resp.datas
+    }
   }
 }
