@@ -1,6 +1,5 @@
 import loginUserReducer from './loginUserReducer'
 import usersReducer from './usersReducer'
-import testReducer from './testReducer'
 import { combineReducers } from '../../redux'
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -15,5 +14,4 @@ import { combineReducers } from '../../redux'
 export default combineReducers({
   loginUserReducer,
   usersReducer,
-  testReducer
 })

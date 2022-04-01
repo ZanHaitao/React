@@ -1,5 +1,5 @@
 import React from "react";
-import "./store/index";
+import "./store/test";
 
 export default function App() {
   return <div>App</div>;
