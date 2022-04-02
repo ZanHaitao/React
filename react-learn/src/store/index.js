@@ -1,5 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
 import reducer from './reducer'
-import promise from 'redux-promise'
+import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger'
-export default createStore(reducer, applyMiddleware(promise, logger));
+import sagaTask from './saga'
+
+const saga = createSagaMiddleware();
+
+
+export default createStore(reducer, applyMiddleware(saga, logger));
+saga.run(sagaTask)

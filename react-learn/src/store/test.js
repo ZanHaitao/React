@@ -1,4 +1,5 @@
 import store from './index';
-import { fetchDatas } from './action/student/searchResult'
+import { asyncIncrease, asyncDecrease } from './action/counter'
 
-store.dispatch(fetchDatas())
+store.dispatch(asyncIncrease());
+store.dispatch(asyncDecrease());
