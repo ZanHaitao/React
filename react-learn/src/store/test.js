@@ -1,5 +1,11 @@
 import store from './index';
-import { asyncIncrease, asyncDecrease } from './action/counter'
+import { autoIncrease, stopIncrease } from './action/counter'
 
-store.dispatch(asyncIncrease());
-store.dispatch(asyncDecrease());
+window.autoIncrease = function () {
+  store.dispatch(autoIncrease())
+}
+window.stopIncrease = function () {
+  store.dispatch(stopIncrease())
+}
+
+// store.dispatch(fetchDatas())

@@ -1,6 +1,13 @@
 export const actionTypes = {
   setLoading: Symbol("setLoading"),
-  setDatas: Symbol("setDatas")
+  setDatas: Symbol("setDatas"),
+  fetchDatas: Symbol("fetchDatas")
+}
+
+export function fetchDatas() {
+  return {
+    type: actionTypes.fetchDatas
+  }
 }
 
 /**
