@@ -1,15 +1,17 @@
-export const actionTypes = {
-  setCondition: Symbol("setCondition")
-}
+import { createActions, handleActions } from 'redux-actions'
 
-/**
- * 设置搜索条件
- * @param {*} payload 
- * @returns 
- */
-export function setCondition(payload) {
-  return {
-    type: actionTypes.setCondition,
-    payload,
-  }
-}
+export const { setCondition } = createActions({
+  SET_CONDITION: payload => payload
+})
+
+export default handleActions({
+  [setCondition]: (state, { payload }) => ({
+    ...state,
+    ...payload
+  })
+}, {
+  key: "",
+  page: 1,
+  limit: 10,
+  total: 0
+})

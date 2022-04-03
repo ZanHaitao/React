@@ -1,38 +1,25 @@
-export const actionTypes = {
-  setLoading: Symbol("setLoading"),
-  setDatas: Symbol("setDatas"),
-  fetchDatas: Symbol("fetchDatas")
-}
+import { createActions, handleActions } from 'redux-actions'
 
-export function fetchDatas() {
-  return {
-    type: actionTypes.fetchDatas
-  }
-}
+export const { setDatas, setLoading, fetchDatas } = createActions({
+  SET_LOADING: payload => payload,
+  SET_DATAS: (total, datas) => ({
+    total,
+    datas
+  }),
+  FETCH_DATAS: null
+})
 
-/**
- * 设置加载状态
- * @param {*} payload 
- * @returns 
- */
-export function setLoading(payload) {
-  return {
-    type: actionTypes.setLoading,
-    payload
-  }
-}
-
-/**
- * 设置学生数据
- * @param {*} payload 
- * @returns 
- */
-export function setDatas(total, datas) {
-  return {
-    type: actionTypes.setDatas,
-    payload: {
-      total,
-      datas
-    }
-  }
-}
+export default handleActions({
+  [setLoading]: (state, { payload }) => ({
+    ...state,
+    isLoading: payload
+  }),
+  [setDatas]: (state, { payload }) => ({
+    ...state,
+    ...payload
+  })
+}, {
+  total: 0,
+  datas: [],
+  isLoading: false
+})
