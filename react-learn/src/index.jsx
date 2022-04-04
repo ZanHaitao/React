@@ -1,6 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import dva from "dva";
+import counterModel from "./models/counter";
+import configRouter from "./configRouter";
+import { createBrowserHistory } from "history";
 
-const h1 = <h1>Hello World</h1>;
+const app = dva({
+  history: createBrowserHistory(),
+});
 
-ReactDOM.render(h1, document.getElementById("root"));
+app.model(counterModel);
+
+app.router(configRouter);
+
+app.start("#root");
