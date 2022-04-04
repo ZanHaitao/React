@@ -8,8 +8,7 @@ export default function StudentSearchBar(props) {
   useEffect(() => {
     setKey(props.search);
     setSex(props.sex);
-  }, [props.search, props.sex]);
-
+  }, [props]);
   const handleKeyChange = useMemo(() => {
     return (e) => {
       setKey(e.target.value);

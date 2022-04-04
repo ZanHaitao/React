@@ -1,15 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Login from "./page/Login";
 import Admin from "./page/Admin";
+import store from "./store";
+import { ConnectedRouter } from "connected-react-router";
+import history from "./store/history";
+import { Provider } from "react-redux";
 
 export default function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/login" exact component={Login} />
-        <Route path="/" component={Admin} />
-      </Switch>
-    </Router>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <Switch>
+          <Route path="/login" exact component={Login} />
+          <Route path="/" component={Admin} />
+        </Switch>
+      </ConnectedRouter>
+    </Provider>
   );
 }
