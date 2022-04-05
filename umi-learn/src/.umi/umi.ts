@@ -4,8 +4,8 @@ import '@@/core/devScripts';
 import { plugin } from './core/plugin';
 import './core/pluginRegister';
 import { createHistory } from './core/history';
-import { ApplyPluginsType } from '/Users/panda/.config/yarn/global/node_modules/@umijs/runtime';
-import { renderClient } from '/Users/panda/.config/yarn/global/node_modules/@umijs/renderer-react';
+import { ApplyPluginsType } from '/Users/panda/Documents/Code/React/umi-learn/node_modules/@umijs/runtime';
+import { renderClient } from '/Users/panda/Documents/Code/React/umi-learn/node_modules/@umijs/renderer-react';
 import { getRoutes } from './core/routes';
 
 

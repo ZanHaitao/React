@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { createBrowserHistory, History } from '/Users/panda/.config/yarn/global/node_modules/@umijs/runtime';
+import { createBrowserHistory, History } from '/Users/panda/Documents/Code/React/umi-learn/node_modules/@umijs/runtime';
 
 let options = {
   "basename": "/"

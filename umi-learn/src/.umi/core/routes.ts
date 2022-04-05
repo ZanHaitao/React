@@ -1,25 +1,55 @@
 // @ts-nocheck
 import React from 'react';
-import { ApplyPluginsType } from '/Users/panda/.config/yarn/global/node_modules/@umijs/runtime';
+import { ApplyPluginsType } from '/Users/panda/Documents/Code/React/umi-learn/node_modules/@umijs/runtime';
 import * as umiExports from './umiExports';
 import { plugin } from './plugin';
 
 export function getRoutes() {
   const routes = [
   {
-    "path": "/Page1",
-    "exact": true,
-    "component": require('@/pages/Page1.js').default
-  },
-  {
-    "path": "/Page2",
-    "exact": true,
-    "component": require('@/pages/Page2.js').default
-  },
-  {
     "path": "/",
-    "exact": true,
-    "component": require('@/pages/index.js').default
+    "component": require('@/layouts/index.js').default,
+    "routes": [
+      {
+        "path": "/404",
+        "exact": true,
+        "component": require('@/pages/404.js').default
+      },
+      {
+        "path": "/detail/:id",
+        "exact": true,
+        "component": require('@/pages/detail/[id].js').default
+      },
+      {
+        "path": "/",
+        "exact": true,
+        "component": require('@/pages/index.js').default
+      },
+      {
+        "path": "/page",
+        "routes": [
+          {
+            "path": "/page",
+            "exact": true,
+            "component": require('@/pages/page/index.js').default
+          },
+          {
+            "path": "/page/page1",
+            "exact": true,
+            "component": require('@/pages/page/page1.js').default
+          },
+          {
+            "path": "/page/page2",
+            "exact": true,
+            "component": require('@/pages/page/page2.js').default
+          }
+        ],
+        "component": require('@/pages/page/_layout.js').default
+      },
+      {
+        "component": require('@/pages/404.js').default
+      }
+    ]
   }
 ];
 
