@@ -9,7 +9,7 @@ import { renderClient } from '/Users/panda/Documents/Code/React/umi-learn/node_m
 import { getRoutes } from './core/routes';
 
 
-
+import '../global.less';
 
 const getClientRender = (args: { hot?: boolean; routes?: any[] } = {}) => plugin.applyPlugins({
   key: 'render',
