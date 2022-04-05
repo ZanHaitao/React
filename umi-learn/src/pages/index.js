@@ -1,5 +1,8 @@
 import React from 'react'
-
+import { getStudentDataAll } from '../services/student'
+getStudentDataAll().then(res => {
+  console.log(res);
+})
 function index() {
   return (
     <h1>首页</h1>
