@@ -1,12 +1,10 @@
 import React from 'react'
-import Test from '@/components/Test'
 
-
-export default function index() {
+function index() {
   return (
-    <div>
-      <h1>首页</h1>
-      <Test />
-    </div>
+    <h1>首页</h1>
   )
 }
+index.title = "首页";
+index.wrappers = ["@/routes/HandleTitle.js"];
+export default index

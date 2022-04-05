@@ -11,43 +11,25 @@ export function getRoutes() {
     "component": require('@/layouts/index.js').default,
     "routes": [
       {
-        "path": "/404",
-        "exact": true,
-        "component": require('@/pages/404.js').default
-      },
-      {
-        "path": "/detail/:id",
-        "exact": true,
-        "component": require('@/pages/detail/[id].js').default
-      },
-      {
         "path": "/",
         "exact": true,
-        "component": require('@/pages/index.js').default
+        "component": require('@/pages/index.js').default,
+        "title": "首页",
+        "wrappers": [require('@/routes/HandleTitle.js').default]
       },
       {
-        "path": "/page",
-        "routes": [
-          {
-            "path": "/page",
-            "exact": true,
-            "component": require('@/pages/page/index.js').default
-          },
-          {
-            "path": "/page/page1",
-            "exact": true,
-            "component": require('@/pages/page/page1.js').default
-          },
-          {
-            "path": "/page/page2",
-            "exact": true,
-            "component": require('@/pages/page/page2.js').default
-          }
-        ],
-        "component": require('@/pages/page/_layout.js').default
+        "path": "/login",
+        "exact": true,
+        "component": require('@/pages/login.js').default,
+        "title": "登录页",
+        "wrappers": [require('@/routes/HandleTitle.js').default]
       },
       {
-        "component": require('@/pages/404.js').default
+        "path": "/welcome",
+        "exact": true,
+        "component": require('@/pages/welcome.js').default,
+        "title": "登录页",
+        "wrappers": [require('@/routes/PrivateRoute.js').default, require('@/routes/HandleTitle.js').default]
       }
     ]
   }
