@@ -40,5 +40,5 @@ function Login() {
 }
 
 Login.title = "登录页";
-Login.wrappers = ["@/routes/HandleTitle.js"];
+// Login.wrappers = ["@/routes/HandleTitle.js"];
 export default Login;

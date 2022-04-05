@@ -6,5 +6,5 @@ function index() {
   )
 }
 index.title = "首页";
-index.wrappers = ["@/routes/HandleTitle.js"];
+// index.wrappers = ["@/routes/HandleTitle.js"];
 export default index

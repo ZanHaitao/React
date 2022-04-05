@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@umijs/preset-react": "^2.1.2",
     "umi": "^3.5.21"
   }
 }

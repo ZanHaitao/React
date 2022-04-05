@@ -263,5 +263,46 @@ title?: string
 mock?: {
 exclude?: string[]
 }
+access?: {
+strictMode?: boolean
+}
+antd?: {
+dark?: boolean
+compact?: boolean
+disableBabelPluginImport?: boolean
+config?: {
+
+}
+}
+antdMobile?: {
+hd?: boolean
+}
+dva?: {
+disableModelsReExport?: boolean
+/**
+ * lazy load dva model avoiding the import modules from umi undefined
+ */
+lazyLoad?: boolean
+extraModels?: string[]
+hmr?: boolean
+immer?: (boolean | {
+
+})
+skipModelValidate?: boolean
+}
+locale?: {
+default?: string
+useLocalStorage?: boolean
+baseNavigator?: boolean
+title?: boolean
+antd?: boolean
+baseSeparator?: string
+}
+layout?: {
+
+}
+request?: {
+dataField?: ""
+}
 [k: string]: any
 }

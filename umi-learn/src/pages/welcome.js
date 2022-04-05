@@ -8,5 +8,6 @@ function welcome() {
 }
 
 welcome.title = "登录页";
-welcome.wrappers = ["@/routes/PrivateRoute.js", "@/routes/HandleTitle.js"];
+welcome.wrappers = ["@/routes/PrivateRoute.js"];
+// welcome.wrappers = ["@/routes/PrivateRoute.js", "@/routes/HandleTitle.js"];
 export default welcome;

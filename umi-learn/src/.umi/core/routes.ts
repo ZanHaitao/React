@@ -11,25 +11,28 @@ export function getRoutes() {
     "component": require('@/layouts/index.js').default,
     "routes": [
       {
+        "path": "/counter",
+        "exact": true,
+        "component": require('@/pages/counter.js').default
+      },
+      {
         "path": "/",
         "exact": true,
         "component": require('@/pages/index.js').default,
-        "title": "首页",
-        "wrappers": [require('@/routes/HandleTitle.js').default]
+        "title": "首页"
       },
       {
         "path": "/login",
         "exact": true,
         "component": require('@/pages/login.js').default,
-        "title": "登录页",
-        "wrappers": [require('@/routes/HandleTitle.js').default]
+        "title": "登录页"
       },
       {
         "path": "/welcome",
         "exact": true,
         "component": require('@/pages/welcome.js').default,
         "title": "登录页",
-        "wrappers": [require('@/routes/PrivateRoute.js').default, require('@/routes/HandleTitle.js').default]
+        "wrappers": [require('@/routes/PrivateRoute.js').default]
       }
     ]
   }
