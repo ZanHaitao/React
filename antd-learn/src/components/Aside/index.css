@@ -1,0 +1,23 @@
+.nav-list {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #444;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+.nav-item {
+  list-style: none;
+  color: #fff;
+}
+.nav-item a {
+  display: block;
+  padding: 15px 0;
+  width: 100%;
+  text-align: center;
+}
+.nav-item a:hover,
+.nav-item a.active {
+  color: #fff;
+  background-color: #777;
+}
