@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css";
+import styles from "./index.css";
 
 export default function Modal(props) {
   const defaultProps = {
@@ -8,17 +8,17 @@ export default function Modal(props) {
   const datas = Object.assign({}, defaultProps, props);
   return (
     <div
-      className="modal-wrapper"
+      className={styles["modal-wrapper"]}
       style={{
         background: datas.bg,
       }}
       onClick={(e) => {
-        e.target.className === "modal-wrapper" &&
+        e.target.className === styles["modal-wrapper"] &&
           datas.onClose &&
           datas.onClose();
       }}
     >
-      <div className="modal-content">{datas.children}</div>
+      <div className={styles["modal-content"]}>{datas.children}</div>
     </div>
   );
 }
