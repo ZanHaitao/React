@@ -13,4 +13,5 @@ function index() {
   )
 }
 index.title = "学生列表";
+index.wrappers = ["@/wrappers/PrivatePage.js"]
 export default index;

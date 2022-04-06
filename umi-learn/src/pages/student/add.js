@@ -7,4 +7,5 @@ function add() {
 }
 
 add.title = "添加学生";
+add.wrappers = ["@/wrappers/PrivatePage.js"]
 export default add;

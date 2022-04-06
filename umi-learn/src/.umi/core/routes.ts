@@ -14,7 +14,8 @@ export function getRoutes() {
         "path": "/",
         "exact": true,
         "component": require('@/pages/index.js').default,
-        "title": "首页"
+        "title": "首页",
+        "wrappers": [require('@/wrappers/PrivatePage.js').default]
       },
       {
         "path": "/login",
@@ -26,19 +27,22 @@ export function getRoutes() {
         "path": "/student/add",
         "exact": true,
         "component": require('@/pages/student/add.js').default,
-        "title": "添加学生"
+        "title": "添加学生",
+        "wrappers": [require('@/wrappers/PrivatePage.js').default]
       },
       {
         "path": "/student",
         "exact": true,
         "component": require('@/pages/student/index.js').default,
-        "title": "学生列表"
+        "title": "学生列表",
+        "wrappers": [require('@/wrappers/PrivatePage.js').default]
       },
       {
         "path": "/student/:id",
         "exact": true,
         "component": require('@/pages/student/[id].js').default,
-        "title": "修改学生"
+        "title": "修改学生",
+        "wrappers": [require('@/wrappers/PrivatePage.js').default]
       }
     ]
   }

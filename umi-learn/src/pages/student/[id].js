@@ -10,4 +10,5 @@ function EditStudent(props) {
 }
 
 EditStudent.title = "修改学生"
+EditStudent.wrappers = ["@/wrappers/PrivatePage.js"]
 export default EditStudent;

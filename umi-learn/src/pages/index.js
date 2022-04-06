@@ -10,4 +10,5 @@ function index() {
 }
 
 index.title = "首页";
+index.wrappers = ["@/wrappers/PrivatePage.js"]
 export default index;
