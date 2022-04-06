@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './index.css'
 import { NavLink, withRouter } from 'umi'
 import { Menu } from 'antd';
 
