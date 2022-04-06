@@ -1,0 +1,28 @@
+.header {
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.container {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.left {
+  width: 200px;
+  float: left;
+  height: 100%;
+}
+
+.right {
+  overflow: auto;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}

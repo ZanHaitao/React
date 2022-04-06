@@ -1,0 +1,17 @@
+.search {
+  display: flex;
+  align-items: center;
+}
+.flag,
+button {
+  margin-left: 20px;
+}
+
+label {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+label input {
+  margin-right: 5px;
+}

@@ -1,13 +1,13 @@
 import React from 'react'
-import { getStudentDataAll } from '../services/student'
-getStudentDataAll().then(res => {
-  console.log(res);
-})
+
 function index() {
   return (
-    <h1>首页</h1>
+    <h1 style={{
+      marginTop: 80,
+      textAlign: 'center'
+    }}>欢迎使用学生管理系统</h1>
   )
 }
+
 index.title = "首页";
-// index.wrappers = ["@/routes/HandleTitle.js"];
-export default index
+export default index;

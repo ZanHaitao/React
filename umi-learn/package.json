@@ -12,6 +12,7 @@
   "dependencies": {
     "@umijs/preset-react": "^2.1.2",
     "mockjs": "^1.1.0",
+    "react-css-modules": "^4.7.11",
     "umi": "^3.5.21"
   }
 }

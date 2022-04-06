@@ -1,0 +1,23 @@
+.pager {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pager .pager-btn {
+  padding: 5px 15px;
+  border: 1px solid #eee;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.pager .pager-btn.active {
+  background-color: rgb(0, 140, 255);
+  color: #fff;
+}
+.pager .pager-text{
+  margin-left: 20px;
+  font-size: 14px;
+}
+.pager .symbol{
+  margin: 0 10px;
+}

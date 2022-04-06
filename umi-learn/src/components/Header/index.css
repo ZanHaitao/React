@@ -1,0 +1,32 @@
+.header {
+  background-color: #222;
+  height: 60px;
+  padding: 0 20px;
+}
+
+.left {
+  float: left;
+}
+
+.left h1{
+  color: #fff;
+  margin: 0;
+  line-height: 60px;
+}
+
+.right {
+  height: 60px;
+  float: right;
+  display: flex;
+  align-items: center;
+}
+
+.right span{
+  margin-right: 10px;
+  color: #fff;
+}
+
+.right button{
+  height: 30px;
+  outline: none;
+}

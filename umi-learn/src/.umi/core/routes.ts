@@ -11,11 +11,6 @@ export function getRoutes() {
     "component": require('@/layouts/index.js').default,
     "routes": [
       {
-        "path": "/counter",
-        "exact": true,
-        "component": require('@/pages/counter.js').default
-      },
-      {
         "path": "/",
         "exact": true,
         "component": require('@/pages/index.js').default,
@@ -25,14 +20,25 @@ export function getRoutes() {
         "path": "/login",
         "exact": true,
         "component": require('@/pages/login.js').default,
-        "title": "登录页"
+        "title": "登录"
       },
       {
-        "path": "/welcome",
+        "path": "/student/add",
         "exact": true,
-        "component": require('@/pages/welcome.js').default,
-        "title": "登录页",
-        "wrappers": [require('@/routes/PrivateRoute.js').default]
+        "component": require('@/pages/student/add.js').default,
+        "title": "添加学生"
+      },
+      {
+        "path": "/student",
+        "exact": true,
+        "component": require('@/pages/student/index.js').default,
+        "title": "学生列表"
+      },
+      {
+        "path": "/student/:id",
+        "exact": true,
+        "component": require('@/pages/student/[id].js').default,
+        "title": "修改学生"
       }
     ]
   }
