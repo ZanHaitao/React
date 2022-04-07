@@ -13,7 +13,7 @@ function Header(props) {
       <Col>
         <span className={styles.flag}>欢迎你</span>
         <span className={styles.flag}>{props.loginUser}</span>
-        <Button shape="circle" icon={<LoginOutlined />} type="primary" onClick={() => {
+        <Button size='small' shape="circle" icon={<LoginOutlined />} type="primary" onClick={() => {
           props.onLoginOut && props.onLoginOut()
         }} title="注销登录"/>
       </Col>

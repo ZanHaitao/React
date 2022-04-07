@@ -1,44 +1,68 @@
 import React, { useMemo } from "react";
 import { Link } from "umi";
 import PropTypes from "prop-types";
-import styles from "./index.css";
+import { Table, ConfigProvider } from 'antd'
 
+import { RobotOutlined } from '@ant-design/icons';
+
+const customizeRenderEmpty = () => (
+  <div style={{ textAlign: 'center', margin: "40px 0" }}>
+    <RobotOutlined style={{ fontSize: 40, marginBottom: 20 }} />
+    <p>暂无数据</p>
+  </div>
+);
 export default function StudentTable(props) {
-  const list = useMemo(() => {
-    return props.stus.map((it) => {
-      return (
-        <tr key={it.id}>
-          <td>{it.sNo}</td>
-          <td>{it.name}</td>
-          <td>{it.sex == 0 ? "男" : "女"}</td>
-          <td>{it.birth}</td>
-          <td>{it.phone}</td>
-          <td>{it.address}</td>
-          <td>{it.email}</td>
-          <td>
-            <Link to={`/student/${it.sNo}`}>详情</Link>
-          </td>
-        </tr>
-      );
-    });
-  }, [props.stus]);
-  return (
-    <table className={styles.table}>
-      <thead>
-        <tr>
-          <th>学号</th>
-          <th>姓名</th>
-          <th>性别</th>
-          <th>出生年份</th>
-          <th>手机号</th>
-          <th>住址</th>
-          <th>邮箱</th>
-          <th>操作</th>
-        </tr>
-      </thead>
-      <tbody>{list}</tbody>
-    </table>
-  );
+
+  const columns = [{
+    title: "学号",
+    dataIndex: "sNo"
+  }, {
+    title: "姓名",
+    dataIndex: "name"
+  }, {
+    title: "性别",
+    dataIndex: "sex",
+    render(sex) {
+      return sex === 1 ? "女" : "男"
+    }
+  }, {
+    title: "出生年份",
+    dataIndex: "birth"
+  }, {
+    title: "手机号",
+    dataIndex: "phone"
+  }, {
+    title: "住宅",
+    dataIndex: "address"
+  }, {
+    title: "邮箱",
+    dataIndex: "email"
+  }, {
+    title: "操作",
+    dataIndex: "sNo",
+    render(sNo) {
+      return <Link to={`/student/${sNo}`}>详情</Link>
+    }
+  }]
+
+  return <ConfigProvider renderEmpty={customizeRenderEmpty}>
+    <Table
+      dataSource={props.stus}
+      columns={columns}
+      rowKey={"id"}
+      loading={props.loading}
+      pagination={{
+        current: props.current,
+        total: props.total,
+        pageSize: props.pageSize,
+        showSizeChanger: false,
+        position: ["bottomCenter"],
+        onChange(newPage) {
+          props.onChange(newPage)
+        }
+      }} />
+  </ConfigProvider>
+
 }
 StudentTable.propTypes = {
   stus: PropTypes.array,

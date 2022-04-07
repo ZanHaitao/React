@@ -6,5 +6,8 @@ export default {
       target: "http://open.duyiedu.com",
       'changeOrigin': true,
     }
-  }
+  },
+  "theme": {
+    "primary-color": "#008c8c",
+  },
 }

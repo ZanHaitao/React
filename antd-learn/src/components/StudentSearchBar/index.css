@@ -2,10 +2,6 @@
   display: flex;
   align-items: center;
 }
-.flag,
-button {
-  margin-left: 20px;
-}
 
 .search label {
   margin-right: 10px;

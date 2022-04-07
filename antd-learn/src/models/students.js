@@ -7,7 +7,7 @@ export default {
       key: "",
       sex: -1,
       page: 1,
-      limit: 10
+      limit: 8
     },
     result: {
       datas: [],
@@ -46,6 +46,7 @@ export default {
         ...condition,
         ...payload
       }
+      console.log(condition);
       yield put(routerRedux.push(`?limit=${condition.limit}&page=${condition.page}&sex=${condition.sex}&key=${condition.key}`))
     },
     /**
@@ -55,6 +56,7 @@ export default {
      */
     *fetchStudentData(action, { put, call, select }) {
       const condition = yield select(state => state.students.condition);
+      yield call(delay, 1000);
       const resp = yield call(getStudentDataFindByPage, condition);
       yield put({
         type: "setResult",
@@ -79,4 +81,12 @@ export default {
       })
     }
   }
+}
+
+function delay(duration) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, duration);
+  })
 }
