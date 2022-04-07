@@ -1,14 +1,13 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { Link } from "umi";
 import PropTypes from "prop-types";
-import { Table, ConfigProvider } from 'antd'
+import { Table, ConfigProvider, Empty } from 'antd'
 
 import { RobotOutlined } from '@ant-design/icons';
 
 const customizeRenderEmpty = () => (
   <div style={{ textAlign: 'center', margin: "40px 0" }}>
-    <RobotOutlined style={{ fontSize: 40, marginBottom: 20 }} />
-    <p>暂无数据</p>
+    <Empty description="暂无数据" />
   </div>
 );
 export default function StudentTable(props) {
@@ -41,7 +40,9 @@ export default function StudentTable(props) {
     title: "操作",
     dataIndex: "sNo",
     render(sNo) {
-      return <Link to={`/student/${sNo}`}>详情</Link>
+      return <Link style={{
+        color: "#008c8c"
+      }} to={`/student/${sNo}`}>详情</Link>
     }
   }]
 

@@ -1,6 +1,7 @@
 import { connect } from "umi"
 import LoginForm from '../LoginForm'
 import { routerRedux } from "dva"
+import { message } from 'antd'
 
 const mapDispatchToProps = dispatch => ({
   async onLogin(loginId, loginPwd) {
@@ -11,10 +12,11 @@ const mapDispatchToProps = dispatch => ({
         loginPwd
       }
     });
-    if(result){
+    if (result) {
+      message.success("登录成功",1);
       dispatch(routerRedux.push("/"))
-    }else{
-      alert("账号或密码错误")
+    } else {
+      message.error("账号或密码错误",1);
     }
   }
 })

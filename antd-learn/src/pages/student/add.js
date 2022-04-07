@@ -1,8 +1,9 @@
 import React from 'react'
+import StudentForm from '../../components/StudentForm'
 
 function add() {
   return (
-    <h1>添加学生</h1>
+    <StudentForm type="add"/>
   )
 }
 

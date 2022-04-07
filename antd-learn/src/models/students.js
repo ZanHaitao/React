@@ -70,6 +70,9 @@ export default {
   subscriptions: {
     listenRouter({ history, dispatch }) {
       history.listen(() => {
+        if (history.location.pathname !== '/student') {
+          return;
+        }
         const query = history.location.query;
         query.limit && (query.limit = +query.limit)
         query.page && (query.page = +query.page)

@@ -1,11 +1,9 @@
 import React from 'react'
+import StudentForm from '../../components/StudentForm'
 
 function EditStudent(props) {
   return (
-    <>
-      <h1>修改学生</h1>
-      <h1>学号：{props.match.params.id}</h1>
-    </>
+    <StudentForm type="update" />
   )
 }
 
