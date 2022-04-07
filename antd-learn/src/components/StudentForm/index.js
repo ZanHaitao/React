@@ -2,6 +2,7 @@ import React, { useMemo, useEffect, useState } from 'react'
 import { Form, Input, Button, Radio, Select, message, Spin } from 'antd'
 import { addStudent, findStudnetById, updateStudent } from '../../services/student';
 import { withRouter } from 'umi'
+import Avatar from '../Avatar'
 
 function StudentAddForm(props) {
   const [form] = Form.useForm();
@@ -99,6 +100,9 @@ function StudentAddForm(props) {
         }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}>
+        <Form.Item label="头像：" name="avatar">
+          <Avatar />
+        </Form.Item>
         <Form.Item label="学号：" name="sNo" rules={[
           { required: true, message: "学号必须填写" }
         ]}>

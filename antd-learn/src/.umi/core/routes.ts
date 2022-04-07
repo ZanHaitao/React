@@ -43,6 +43,11 @@ export function getRoutes() {
         "component": require('@/pages/student/[id].js').default,
         "title": "修改学生",
         "wrappers": [require('@/wrappers/PrivatePage.js').default]
+      },
+      {
+        "path": "/test-avatar",
+        "exact": true,
+        "component": require('@/pages/test-avatar.js').default
       }
     ]
   }
